@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STOW Agent V3.0 — 全栈智能认知与资产转化系统</title>
+  <meta name="description" content="Full-Stack Intelligent Knowledge & Asset Transformation System V3.0 — Omni-Signal Ingestion, Compounding Engine, Value Realization, Governance & Infrastructure">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Animated Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav" id="topNav">
+    <div class="nav-brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+          <circle cx="16" cy="16" r="8" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="16" cy="16" r="3" fill="currentColor"/>
+          <line x1="16" y1="2" x2="16" y2="8" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="16" y1="24" x2="16" y2="30" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="2" y1="16" x2="8" y2="16" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="24" y1="16" x2="30" y2="16" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">STOW Agent</span>
+        <span class="brand-version">V3.0</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#ingestion" class="nav-link active" data-section="ingestion">
+        <span class="nav-icon">📡</span> 摄取层
+      </a>
+      <a href="#engine" class="nav-link" data-section="engine">
+        <span class="nav-icon">⚙️</span> 编译层
+      </a>
+      <a href="#realization" class="nav-link" data-section="realization">
+        <span class="nav-icon">🎯</span> 行动层
+      </a>
+      <a href="#governance" class="nav-link" data-section="governance">
+        <span class="nav-icon">🛡️</span> 治理层
+      </a>
+    </div>
+    <div class="nav-status">
+      <div class="status-indicator online">
+        <span class="status-dot"></span>
+        <span class="status-text">系统在线</span>
+      </div>
+      <div class="nav-metrics">
+        <span class="metric-badge" id="tokenCount">
+          <span class="metric-icon">🪙</span> <span id="tokenValue">124.8K</span> tokens
+        </span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Dashboard -->
+  <main class="dashboard" id="dashboard">
+
+    <!-- System Overview Banner -->
+    <section class="overview-banner" id="overviewBanner">
+      <div class="overview-content">
+        <h1 class="overview-title">
+          全栈智能认知与资产转化系统
+          <span class="title-glow">架构 V3.0</span>
+        </h1>
+        <p class="overview-subtitle">
+          Full-Stack Intelligent Knowledge & Asset Transformation System
+        </p>
+        <div class="overview-stats">
+          <div class="stat-card">
+            <div class="stat-value" id="statSignals">0</div>
+            <div class="stat-label">信号源</div>
+            <div class="stat-sublabel">Active Signals</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="statKnowledge">0</div>
+            <div class="stat-label">知识节点</div>
+            <div class="stat-sublabel">Knowledge Nodes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="statOutputs">0</div>
+            <div class="stat-label">标准输出</div>
+            <div class="stat-sublabel">Outputs Generated</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="statAgents">0</div>
+            <div class="stat-label">活跃代理</div>
+            <div class="stat-sublabel">Active Agents</div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-diagram-mini">
+        <canvas id="flowCanvas" width="400" height="200"></canvas>
+      </div>
+    </section>
+
+    <!-- LAYER 1: Omni-Signal Ingestion -->
+    <section class="layer-section" id="ingestion">
+      <div class="layer-header">
+        <div class="layer-badge layer-1">1</div>
+        <div class="layer-title-group">
+          <h2 class="layer-title">摄取层：多维信号捕获</h2>
+          <span class="layer-subtitle">Omni-Signal Ingestion</span>
+        </div>
+        <div class="layer-status">
+          <span class="pulse-dot green"></span>
+          <span>采集中</span>
+        </div>
+      </div>
+
+      <div class="layer-grid layer-1-grid">
+        <!-- Global Horizon -->
+        <div class="panel glass-panel" id="globalHorizon">
+          <div class="panel-header">
+            <div class="panel-icon">🌐</div>
+            <h3 class="panel-title">Global Horizon</h3>
+            <div class="panel-badge active">LIVE</div>
+          </div>
+          <div class="panel-body">
+            <div class="macro-lens">
+              <h4 class="lens-title">宏观滤镜</h4>
+              <div class="lens-items">
+                <div class="lens-item">
+                  <span class="lens-icon">🌍</span>
+                  <span class="lens-label">全球视角 / 政经</span>
+                  <span class="lens-status active">●</span>
+                </div>
+                <div class="lens-item">
+                  <span class="lens-icon">🔬</span>
+                  <span class="lens-label">行业 / 科技瓶颈</span>
+                  <span class="lens-status active">●</span>
+                </div>
+                <div class="lens-item">
+                  <span class="lens-icon">🤝</span>
+                  <span class="lens-label">信任机制</span>
+                  <span class="lens-status active">●</span>
+                </div>
+              </div>
+            </div>
+            <div class="signal-feed" id="signalFeed">
+              <div class="feed-item">
+                <span class="feed-time">19:24</span>
+                <span class="feed-text">检测到西班牙房产市场政策变动信号...</span>
+              </div>
+              <div class="feed-item">
+                <span class="feed-time">19:21</span>
+                <span class="feed-text">AI Agent 框架技术突破追踪更新</span>
+              </div>
+              <div class="feed-item">
+                <span class="feed-time">19:18</span>
+                <span class="feed-text">全球宏观经济指标异动警报</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Sources -->
+        <div class="panel glass-panel" id="dataSources">
+          <div class="panel-header">
+            <div class="panel-icon">📥</div>
+            <h3 class="panel-title">数据采集器</h3>
+          </div>
+          <div class="panel-body">
+            <div class="source-card" id="webClipper">
+              <div class="source-icon obsidian">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div class="source-info">
+                <span class="source-name">Obsidian Web Clipper</span>
+                <span class="source-status online">已连接</span>
+              </div>
+              <div class="source-metric">
+                <span class="metric-value" id="clipperCount">347</span>
+                <span class="metric-unit">clips today</span>
+              </div>
+              <div class="source-progress">
+                <div class="progress-bar" style="--progress: 78%"></div>
+              </div>
+            </div>
+
+            <div class="source-card" id="youtubeTranscriber">
+              <div class="source-icon youtube">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                  <path d="M23 7s-.3-2-1.2-2.8C20.7 3.2 19.5 3.2 19 3.1 15.5 2.8 12 2.8 12 2.8s-3.5 0-7 .3c-.5.1-1.7.1-2.8 1.1C1.3 5 1 7 1 7S.7 9.3.7 11.5v1c0 2.2.3 4.5.3 4.5s.3 2 1.2 2.8c1.1 1 2.6.9 3.3 1 2.4.2 7.5.3 7.5.3s3.5 0 7-.3c.5-.1 1.7-.1 2.8-1.1.9-.8 1.2-2.8 1.2-2.8s.3-2.3.3-4.5v-1c0-2.2-.3-4.5-.3-4.5zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                </svg>
+              </div>
+              <div class="source-info">
+                <span class="source-name">YouTube Transcriber</span>
+                <span class="source-status online">转录中</span>
+              </div>
+              <div class="source-metric">
+                <span class="metric-value" id="transcribeCount">23</span>
+                <span class="metric-unit">transcripts</span>
+              </div>
+              <div class="source-progress">
+                <div class="progress-bar" style="--progress: 45%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RAW Material Library -->
+        <div class="panel glass-panel" id="rawLibrary">
+          <div class="panel-header">
+            <div class="panel-icon">🗄️</div>
+            <h3 class="panel-title">RAW 素材库</h3>
+            <div class="panel-badge secure">SHA-256</div>
+          </div>
+          <div class="panel-body">
+            <div class="library-stats">
+              <div class="lib-stat">
+                <span class="lib-stat-value" id="rawTotal">2,847</span>
+                <span class="lib-stat-label">总素材</span>
+              </div>
+              <div class="lib-stat">
+                <span class="lib-stat-value" id="rawToday">+56</span>
+                <span class="lib-stat-label">今日新增</span>
+              </div>
+              <div class="lib-stat">
+                <span class="lib-stat-value" id="rawVerified">100%</span>
+                <span class="lib-stat-label">验证率</span>
+              </div>
+            </div>
+            <div class="storage-visual">
+              <div class="storage-ring" id="storageRing">
+                <svg viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"/>
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="url(#storageGrad)" stroke-width="6" stroke-dasharray="264" stroke-dashoffset="66" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+                  <defs>
+                    <linearGradient id="storageGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#00d4ff"/>
+                      <stop offset="100%" stop-color="#7b2ff7"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="storage-text">
+                  <span class="storage-pct">75%</span>
+                  <span class="storage-label">Immutable</span>
+                </div>
+              </div>
+            </div>
+            <div class="path-display">
+              <code>Obsidian/raw/ — 不可变存储</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Flow Arrow -->
+      <div class="flow-arrow down">
+        <div class="flow-arrow-line"></div>
+        <div class="flow-arrow-label">Raw Sources → 成熟知识</div>
+        <div class="flow-particles" id="flowParticles1"></div>
+      </div>
+    </section>
+
+    <!-- LAYER 2: Compounding Engine -->
+    <section class="layer-section" id="engine">
+      <div class="layer-header">
+        <div class="layer-badge layer-2">2</div>
+        <div class="layer-title-group">
+          <h2 class="layer-title">编译层：增量复利中枢维护</h2>
+          <span class="layer-subtitle">Tiental Compounding Engine</span>
+        </div>
+        <div class="layer-status">
+          <span class="pulse-dot blue"></span>
+          <span>编译中</span>
+        </div>
+      </div>
+
+      <div class="layer-grid layer-2-grid">
+        <!-- LLM Bookkeeper -->
+        <div class="panel glass-panel featured" id="llmBookkeeper">
+          <div class="panel-header">
+            <div class="panel-icon">📚</div>
+            <h3 class="panel-title">LLM 簿记员</h3>
+            <div class="panel-badge ai">AI-Powered</div>
+          </div>
+          <div class="panel-body">
+            <div class="llm-models">
+              <div class="model-card active" id="modelClaude">
+                <div class="model-avatar claude">
+                  <span>C</span>
+                </div>
+                <div class="model-info">
+                  <span class="model-name">Claude Code</span>
+                  <span class="model-role">Agent SOL</span>
+                </div>
+                <div class="model-status online">
+                  <span class="status-dot"></span>
+                </div>
+              </div>
+              <div class="model-card" id="modelGPT">
+                <div class="model-avatar gpt">
+                  <span>G</span>
+                </div>
+                <div class="model-info">
+                  <span class="model-name">GPT-4</span>
+                  <span class="model-role">辅助分析</span>
+                </div>
+                <div class="model-status online">
+                  <span class="status-dot"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="task-pipeline">
+              <h4 class="pipeline-title">处理管线</h4>
+              <div class="pipeline-steps">
+                <div class="pipeline-step active" id="stepIncrement">
+                  <div class="step-indicator"></div>
+                  <span class="step-label">增量构建</span>
+                  <span class="step-eng">Incrementation</span>
+                </div>
+                <div class="pipeline-connector"></div>
+                <div class="pipeline-step" id="stepLink">
+                  <div class="step-indicator"></div>
+                  <span class="step-label">结构化关联</span>
+                  <span class="step-eng">Linking</span>
+                </div>
+                <div class="pipeline-connector"></div>
+                <div class="pipeline-step" id="stepLint">
+                  <div class="step-indicator"></div>
+                  <span class="step-label">系统体检</span>
+                  <span class="step-eng">Linting</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pipeline-metrics">
+              <div class="pm-item">
+                <span class="pm-label">今日处理</span>
+                <span class="pm-value" id="processedToday">1,283</span>
+              </div>
+              <div class="pm-item">
+                <span class="pm-label">关联创建</span>
+                <span class="pm-value" id="linksCreated">456</span>
+              </div>
+              <div class="pm-item">
+                <span class="pm-label">体检通过</span>
+                <span class="pm-value" id="lintPassed">98.7%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Obsidian Knowledge Network -->
+        <div class="panel glass-panel" id="wikiCore">
+          <div class="panel-header">
+            <div class="panel-icon">🧠</div>
+            <h3 class="panel-title">OBSIDIAN 知识网络</h3>
+            <span class="panel-subtitle">The Wiki Core</span>
+          </div>
+          <div class="panel-body">
+            <div class="wiki-files">
+              <div class="wiki-file" id="indexMd">
+                <div class="file-icon md">MD</div>
+                <div class="file-info">
+                  <span class="file-name">Index.md</span>
+                  <span class="file-desc">动态目录，解决</span>
+                </div>
+                <div class="file-activity">
+                  <div class="activity-bar" style="--activity: 85%"></div>
+                </div>
+              </div>
+              <div class="wiki-file" id="logMd">
+                <div class="file-icon md">MD</div>
+                <div class="file-info">
+                  <span class="file-name">Log.md</span>
+                  <span class="file-desc">时间线语境</span>
+                </div>
+                <div class="file-activity">
+                  <div class="activity-bar" style="--activity: 62%"></div>
+                </div>
+              </div>
+              <div class="wiki-file" id="mocs">
+                <div class="file-icon schema">MOC</div>
+                <div class="file-info">
+                  <span class="file-name">MOCs</span>
+                  <span class="file-desc">知识地图</span>
+                </div>
+                <div class="file-activity">
+                  <div class="activity-bar" style="--activity: 73%"></div>
+                </div>
+              </div>
+              <div class="wiki-file" id="schema">
+                <div class="file-icon schema">SCH</div>
+                <div class="file-info">
+                  <span class="file-name">Schema</span>
+                  <span class="file-desc">资深维护者</span>
+                </div>
+                <div class="file-activity">
+                  <div class="activity-bar" style="--activity: 90%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="knowledge-graph" id="knowledgeGraph">
+              <canvas id="graphCanvas" width="360" height="200"></canvas>
+            </div>
+
+            <div class="wiki-summary">
+              <span class="wiki-stat">
+                <strong id="wikiNodes">3,421</strong> 节点
+              </span>
+              <span class="wiki-separator">·</span>
+              <span class="wiki-stat">
+                <strong id="wikiLinks">12,847</strong> 关联
+              </span>
+              <span class="wiki-separator">·</span>
+              <span class="wiki-stat">
+                <strong id="wikiMocs">28</strong> MOCs
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-arrow down">
+        <div class="flow-arrow-line"></div>
+        <div class="flow-arrow-label">成熟知识 → 价值锚点</div>
+        <div class="flow-particles" id="flowParticles2"></div>
+      </div>
+    </section>
+
+    <!-- LAYER 3: Value Realization -->
+    <section class="layer-section" id="realization">
+      <div class="layer-header">
+        <div class="layer-badge layer-3">3</div>
+        <div class="layer-title-group">
+          <h2 class="layer-title">行动层：价值锚点研究</h2>
+          <span class="layer-subtitle">Value Realization</span>
+        </div>
+        <div class="layer-status">
+          <span class="pulse-dot amber"></span>
+          <span>生产中</span>
+        </div>
+      </div>
+
+      <div class="layer-grid layer-3-grid">
+        <!-- Deep Research -->
+        <div class="panel glass-panel" id="deepResearch">
+          <div class="panel-header">
+            <div class="panel-icon">🔍</div>
+            <h3 class="panel-title">A. 深层研究</h3>
+            <span class="panel-subtitle">Deep Research</span>
+          </div>
+          <div class="panel-body">
+            <div class="research-capabilities">
+              <div class="cap-item">
+                <span class="cap-icon">📊</span>
+                <div class="cap-info">
+                  <span class="cap-name">现场分析</span>
+                  <span class="cap-eng">Field Analysis</span>
+                </div>
+                <div class="cap-progress">
+                  <div class="cap-bar" style="--cap-pct: 82%"></div>
+                </div>
+              </div>
+              <div class="cap-item">
+                <span class="cap-icon">📝</span>
+                <div class="cap-info">
+                  <span class="cap-name">报告生成</span>
+                  <span class="cap-eng">Report Generation</span>
+                </div>
+                <div class="cap-progress">
+                  <div class="cap-bar" style="--cap-pct: 91%"></div>
+                </div>
+              </div>
+              <div class="cap-item">
+                <span class="cap-icon">🤝</span>
+                <div class="cap-info">
+                  <span class="cap-name">协同 Notes</span>
+                  <span class="cap-eng">Collaborative Notes</span>
+                </div>
+                <div class="cap-progress">
+                  <div class="cap-bar" style="--cap-pct: 67%"></div>
+                </div>
+              </div>
+              <div class="cap-item">
+                <span class="cap-icon">⚖️</span>
+                <div class="cap-info">
+                  <span class="cap-name">横向对比</span>
+                  <span class="cap-eng">Cross-Comparison</span>
+                </div>
+                <div class="cap-progress">
+                  <div class="cap-bar" style="--cap-pct: 75%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="research-active">
+              <h4>活跃研究任务</h4>
+              <div class="research-task running">
+                <span class="task-indicator"></span>
+                <span class="task-name">西班牙房产市场分析 v2</span>
+                <span class="task-progress">73%</span>
+              </div>
+              <div class="research-task queued">
+                <span class="task-indicator"></span>
+                <span class="task-name">Alpha 收益策略研究</span>
+                <span class="task-progress">排队中</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Standardized Outputs -->
+        <div class="panel glass-panel" id="standardizedOutputs">
+          <div class="panel-header">
+            <div class="panel-icon">📦</div>
+            <h3 class="panel-title">B. 标准化产出结果</h3>
+            <span class="panel-subtitle">Standardized Output</span>
+          </div>
+          <div class="panel-body">
+            <div class="output-types">
+              <div class="output-card" id="outputCode">
+                <div class="output-icon code-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/>
+                  </svg>
+                </div>
+                <div class="output-info">
+                  <span class="output-name">代码实现</span>
+                  <span class="output-count" id="codeOutputs">42</span>
+                </div>
+              </div>
+              <div class="output-card" id="outputDocs">
+                <div class="output-icon docs-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14,2H6A2,2,0,0,0,4,4V20a2,2,0,0,0,2,2H18a2,2,0,0,0,2-2V8Z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/>
+                  </svg>
+                </div>
+                <div class="output-info">
+                  <span class="output-name">文稿</span>
+                  <span class="output-count" id="docOutputs">128</span>
+                </div>
+              </div>
+              <div class="output-card" id="outputDecision">
+                <div class="output-icon decision-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+                  </svg>
+                </div>
+                <div class="output-info">
+                  <span class="output-name">决策</span>
+                  <span class="output-count" id="decisionOutputs">17</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="output-pipeline">
+              <div class="pipeline-item">
+                <span class="pip-label">商业计划</span>
+                <div class="pip-bar"><div class="pip-fill" style="--fill: 88%"></div></div>
+                <span class="pip-value">88%</span>
+              </div>
+              <div class="pipeline-item">
+                <span class="pip-label">投资模型</span>
+                <div class="pip-bar"><div class="pip-fill" style="--fill: 64%"></div></div>
+                <span class="pip-value">64%</span>
+              </div>
+              <div class="pipeline-item">
+                <span class="pip-label">代码实现</span>
+                <div class="pip-bar"><div class="pip-fill" style="--fill: 95%"></div></div>
+                <span class="pip-value">95%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Knowledge Influx -->
+      <div class="flow-arrow bidirectional">
+        <div class="flow-arrow-line"></div>
+        <div class="flow-arrow-label">价值回流 — Knowledge Influx</div>
+      </div>
+    </section>
+
+    <!-- LAYER 4: Governance & Infrastructure -->
+    <section class="layer-section" id="governance">
+      <div class="layer-header">
+        <div class="layer-badge layer-4">4</div>
+        <div class="layer-title-group">
+          <h2 class="layer-title">治理层：底层支撑与安全</h2>
+          <span class="layer-subtitle">Governance & Infrastructure</span>
+        </div>
+        <div class="layer-status">
+          <span class="pulse-dot green"></span>
+          <span>安全运行</span>
+        </div>
+      </div>
+
+      <div class="layer-grid layer-4-grid">
+        <!-- Agent Collaboration -->
+        <div class="panel glass-panel" id="agentCollab">
+          <div class="panel-header">
+            <div class="panel-icon">🤖</div>
+            <h3 class="panel-title">Agent 协作</h3>
+          </div>
+          <div class="panel-body">
+            <div class="agent-roster">
+              <div class="agent-card initializer" id="agentInit">
+                <div class="agent-avatar">
+                  <span>I</span>
+                  <div class="agent-pulse"></div>
+                </div>
+                <div class="agent-info">
+                  <span class="agent-name">Initializer</span>
+                  <span class="agent-role">系统初始化</span>
+                </div>
+                <div class="agent-status-indicator active">
+                  <span>运行中</span>
+                </div>
+              </div>
+              <div class="agent-card coding" id="agentCode">
+                <div class="agent-avatar">
+                  <span>C</span>
+                  <div class="agent-pulse"></div>
+                </div>
+                <div class="agent-info">
+                  <span class="agent-name">Coding Agent</span>
+                  <span class="agent-role">代码生成</span>
+                </div>
+                <div class="agent-status-indicator active">
+                  <span>编码中</span>
+                </div>
+              </div>
+              <div class="agent-card operator" id="agentOp">
+                <div class="agent-avatar">
+                  <span>O</span>
+                  <div class="agent-pulse"></div>
+                </div>
+                <div class="agent-info">
+                  <span class="agent-name">Operator</span>
+                  <span class="agent-role">运维操作</span>
+                </div>
+                <div class="agent-status-indicator idle">
+                  <span>待命</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Defense -->
+        <div class="panel glass-panel" id="securityDefense">
+          <div class="panel-header">
+            <div class="panel-icon">🛡️</div>
+            <h3 class="panel-title">安全防御</h3>
+            <div class="panel-badge secure">PROTECTED</div>
+          </div>
+          <div class="panel-body">
+            <div class="security-shield">
+              <div class="shield-visual" id="shieldVisual">
+                <svg viewBox="0 0 80 90" fill="none">
+                  <path d="M40 5L10 20V45C10 65 25 80 40 85C55 80 70 65 70 45V20L40 5Z" fill="url(#shieldFill)" stroke="url(#shieldStroke)" stroke-width="2"/>
+                  <text x="40" y="50" text-anchor="middle" fill="white" font-size="16" font-weight="bold">A+</text>
+                  <defs>
+                    <linearGradient id="shieldFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(0,212,255,0.15)"/>
+                      <stop offset="100%" stop-color="rgba(123,47,247,0.15)"/>
+                    </linearGradient>
+                    <linearGradient id="shieldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#00d4ff"/>
+                      <stop offset="100%" stop-color="#7b2ff7"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div class="shield-info">
+                <span class="shield-label">AgentShield Hook 审计</span>
+                <div class="shield-stats">
+                  <div class="shield-stat">
+                    <span class="ss-value">1,282</span>
+                    <span class="ss-label">测试通过</span>
+                  </div>
+                  <div class="shield-stat">
+                    <span class="ss-value">102</span>
+                    <span class="ss-label">规则检查</span>
+                  </div>
+                  <div class="shield-stat">
+                    <span class="ss-value">0</span>
+                    <span class="ss-label">威胁发现</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Git Provenance -->
+        <div class="panel glass-panel" id="gitProvenance">
+          <div class="panel-header">
+            <div class="panel-icon">📜</div>
+            <h3 class="panel-title">Git 溯源</h3>
+            <span class="panel-subtitle">智力证明</span>
+          </div>
+          <div class="panel-body">
+            <div class="git-timeline" id="gitTimeline">
+              <div class="git-commit latest">
+                <div class="commit-dot"></div>
+                <div class="commit-info">
+                  <span class="commit-hash">a3f7b2c</span>
+                  <span class="commit-msg">feat: 西班牙房产分析模型 v2.1</span>
+                  <span class="commit-time">2 分钟前</span>
+                </div>
+              </div>
+              <div class="git-commit">
+                <div class="commit-dot"></div>
+                <div class="commit-info">
+                  <span class="commit-hash">e9d4f1a</span>
+                  <span class="commit-msg">refactor: 知识图谱关联算法优化</span>
+                  <span class="commit-time">15 分钟前</span>
+                </div>
+              </div>
+              <div class="git-commit">
+                <div class="commit-dot"></div>
+                <div class="commit-info">
+                  <span class="commit-hash">b2c8e3d</span>
+                  <span class="commit-msg">docs: MOC 地图更新 - AI Agent 领域</span>
+                  <span class="commit-time">1 小时前</span>
+                </div>
+              </div>
+              <div class="git-commit">
+                <div class="commit-dot"></div>
+                <div class="commit-info">
+                  <span class="commit-hash">f1a5c7b</span>
+                  <span class="commit-msg">fix: 信号采集器 SHA-256 校验修复</span>
+                  <span class="commit-time">3 小时前</span>
+                </div>
+              </div>
+            </div>
+            <div class="git-stats">
+              <span class="git-stat">
+                <strong id="gitBranches">7</strong> 分支
+              </span>
+              <span class="git-stat">
+                <strong id="gitCommits">1,171</strong> 提交
+              </span>
+              <span class="git-stat">
+                <strong id="gitContribs">3</strong> 代理
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STOW Analysis Sidebar -->
+    <aside class="stow-sidebar" id="stowSidebar">
+      <div class="stow-toggle" id="stowToggle">
+        <span>STOW</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <polyline points="9,18 15,12 9,6"/>
+        </svg>
+      </div>
+      <div class="stow-content" id="stowContent">
+        <h3 class="stow-title">系统核心优势分析</h3>
+        <p class="stow-acronym">STOW Analysis</p>
+
+        <div class="stow-card strength">
+          <div class="stow-card-header">
+            <span class="stow-icon">💪</span>
+            <span class="stow-label">优势 Strengths</span>
+          </div>
+          <ul class="stow-list">
+            <li>观察到决策自动化</li>
+            <li>结构化关联 (Linking)</li>
+            <li>增量复利</li>
+            <li>Human-in-the-Loop</li>
+          </ul>
+        </div>
+
+        <div class="stow-card threat">
+          <div class="stow-card-header">
+            <span class="stow-icon">⚠️</span>
+            <span class="stow-label">威胁 Threats</span>
+          </div>
+          <ul class="stow-list">
+            <li>PII 隐私风险</li>
+            <li>Token 成本管理</li>
+          </ul>
+        </div>
+
+        <div class="stow-card opportunity">
+          <div class="stow-card-header">
+            <span class="stow-icon">🚀</span>
+            <span class="stow-label">机会 Opportunities</span>
+          </div>
+          <ul class="stow-list">
+            <li>西班牙房产 Alpha 收益</li>
+            <li>增量编译复利</li>
+          </ul>
+        </div>
+
+        <div class="stow-card weakness">
+          <div class="stow-card-header">
+            <span class="stow-icon">🎯</span>
+            <span class="stow-label">挑战 Weaknesses</span>
+          </div>
+          <ul class="stow-list">
+            <li>Token 成本管理</li>
+            <li>V3.0 架构迁移</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Iteration Loop Indicator -->
+    <div class="iteration-loop" id="iterationLoop">
+      <div class="loop-visual">
+        <svg viewBox="0 0 60 200" fill="none">
+          <path d="M30 10 L30 190" stroke="url(#loopGrad)" stroke-width="2" stroke-dasharray="8 4"/>
+          <circle cx="30" cy="30" r="6" fill="#00d4ff" opacity="0.8"/>
+          <circle cx="30" cy="80" r="6" fill="#7b2ff7" opacity="0.8"/>
+          <circle cx="30" cy="130" r="6" fill="#ff6b35" opacity="0.8"/>
+          <circle cx="30" cy="180" r="6" fill="#00e676" opacity="0.8"/>
+          <path d="M36 180 Q50 100 36 30" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="4 4"/>
+          <defs>
+            <linearGradient id="loopGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#00d4ff"/>
+              <stop offset="50%" stop-color="#7b2ff7"/>
+              <stop offset="100%" stop-color="#00e676"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="loop-label">
+        <span>迭代与时效性环</span>
+        <span class="loop-eng">Iteration Loop</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    <div class="footer-left">
+      <span class="footer-brand">STOW Agent V3.0</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-info">全栈智能认知与资产转化系统架构</span>
+    </div>
+    <div class="footer-right">
+      <span class="footer-metric">
+        上次同步: <strong id="lastSync">刚刚</strong>
+      </span>
+      <span class="footer-sep">·</span>
+      <span class="footer-metric">
+        运行时长: <strong id="uptime">0h 0m</strong>
+      </span>
+    </div>
+  </footer>
+
+  <script src="js/particles.js"></script>
+  <script src="js/agents.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

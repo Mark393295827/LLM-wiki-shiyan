@@ -1,0 +1,35 @@
+{
+  "graph": {
+    "colorGroups": [
+      {
+        "query": "path:entities",
+        "color": { "a": 1, "rgb": 14209003 }
+      },
+      {
+        "query": "path:concepts",
+        "color": { "a": 1, "rgb": 8071927 }
+      },
+      {
+        "query": "path:sources",
+        "color": { "a": 1, "rgb": 55039 }
+      },
+      {
+        "query": "path:comparisons",
+        "color": { "a": 1, "rgb": 16750899 }
+      }
+    ],
+    "showTags": true,
+    "showAttachments": false,
+    "showOrphans": true,
+    "localJumps": 2,
+    "localBacklinks": true,
+    "localForelinks": true,
+    "localInterlinks": true,
+    "repelStrength": 10,
+    "linkStrength": 1,
+    "centerStrength": 0.518713,
+    "linkDistance": 250,
+    "scale": 1,
+    "close": false
+  }
+}

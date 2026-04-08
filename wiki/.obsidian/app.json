@@ -1,0 +1,7 @@
+{
+  "attachmentFolderPath": "raw/assets",
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false,
+  "showFrontmatter": true,
+  "strictLineBreaks": false
+}
